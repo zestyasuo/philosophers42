@@ -1,0 +1,7 @@
+.*
+!.gitignore
+*.o
+philo/philo
+philo/obj/philo.o
+philo/output
+philo_forks.c

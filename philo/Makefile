@@ -7,9 +7,15 @@ SRCPATH		=	src/
 OBJPATH		=	obj/
 
 SRC			=	philo.c			\
-				print_utils.c	\
+				philo_utils.c	\
+				ft_atoi.c		\
+				philos_init.c	\
+				clean.c			\
+				philo_act.c		\
+				philo_forks.c
 
-HEADERS = philo.h
+HEADERS =	philo.h			\
+			philo_fork.h	\
 
 HEAD_DEP = ${HEADERS:%.h=${INCPATH}%.h}
 
