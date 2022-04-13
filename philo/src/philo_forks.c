@@ -6,7 +6,7 @@
 /*   By: zyasuo <zyasuo@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 16:38:12 by zyasuo            #+#    #+#             */
-/*   Updated: 2022/04/12 23:53:38 by zyasuo           ###   ########.fr       */
+/*   Updated: 2022/04/13 12:41:06 by zyasuo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	philo_take_fork(t_philo *philo, t_fork *fork)
 	pthread_mutex_lock(&fork->mutex);
 	fork->holder = philo;
 	pthread_mutex_lock(philo->print_mutex);
-	printf("%zu %d has taken a fork.\n", get_current_time(), philo->id);
+	printf("%zu %d has taken a fork\n", get_current_time(), philo->id);
 	pthread_mutex_unlock(philo->print_mutex);
 	return (1);
 }

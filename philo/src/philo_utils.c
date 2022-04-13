@@ -6,7 +6,7 @@
 /*   By: zyasuo <zyasuo@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 23:56:39 by zyasuo            #+#    #+#             */
-/*   Updated: 2022/04/13 00:00:45 by zyasuo           ###   ########.fr       */
+/*   Updated: 2022/04/13 12:57:55 by zyasuo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,12 @@ size_t	get_current_time(void)
 {
 	size_t			time;
 	struct timeval	tv;
+	static size_t	first_call;
 
 	gettimeofday(&tv, NULL);
-	time = (tv.tv_sec * 1000) + (tv.tv_usec / 1000);
+	if (!first_call)
+		first_call = (tv.tv_sec * 1000) + (tv.tv_usec / 1000);
+	time = (tv.tv_sec * 1000) + (tv.tv_usec / 1000) - first_call;
 	return (time);
 }
 
@@ -42,7 +45,7 @@ int	is_dead(t_philo **philos, int length)
 	i = 0;
 	while (i < length)
 	{
-		if (!philos[i]->alive)
+		if (philo_die(philos[i]))
 		{
 			printf("%zu %d died\n", get_current_time(), philos[i]->id);
 			return (1);

@@ -6,7 +6,7 @@
 /*   By: zyasuo <zyasuo@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/09 16:41:59 by zyasuo            #+#    #+#             */
-/*   Updated: 2022/04/12 23:35:49 by zyasuo           ###   ########.fr       */
+/*   Updated: 2022/04/13 12:57:41 by zyasuo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,14 @@
 void	philo_think(t_philo *philo)
 {
 	pthread_mutex_lock(philo->print_mutex);
-	printf("%zu %d is thinking.\n", get_current_time(), philo->id);
+	printf("%zu %d is thinking\n", get_current_time(), philo->id);
 	pthread_mutex_unlock(philo->print_mutex);
 }
 
 void	philo_sleep(t_philo *philo)
 {
 	pthread_mutex_lock(philo->print_mutex);
-	printf("%zu %d is sleeping.\n", get_current_time(), philo->id);
+	printf("%zu %d is sleeping\n", get_current_time(), philo->id);
 	pthread_mutex_unlock(philo->print_mutex);
 	ft_sleep(philo->time_to_sleep);
 	philo_think(philo);
@@ -47,7 +47,7 @@ void	philo_eat(t_philo *philo)
 	{
 		philo->born_at = get_current_time();
 		pthread_mutex_lock(philo->print_mutex);
-		printf("%zu %d is eating.\n", philo->born_at, philo->id);
+		printf("%zu %d is eating\n", philo->born_at, philo->id);
 		pthread_mutex_unlock(philo->print_mutex);
 		ft_sleep(philo->time_to_eat);
 		philo_put_fork(philo->left);

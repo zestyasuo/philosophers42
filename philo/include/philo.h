@@ -6,7 +6,7 @@
 /*   By: zyasuo <zyasuo@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 23:54:49 by zyasuo            #+#    #+#             */
-/*   Updated: 2022/04/12 20:41:58 by zyasuo           ###   ########.fr       */
+/*   Updated: 2022/04/13 13:21:52 by zyasuo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ void	serve_table(t_table *table);
 void	*start_philo(void *context);
 int		all_full(t_table *table, int length);
 int		is_dead(t_philo **philos, int length);
+int		philo_die(t_philo *philo);
 size_t	ft_sleep(size_t ms);
 
 #endif
