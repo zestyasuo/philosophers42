@@ -6,7 +6,7 @@
 /*   By: zyasuo <zyasuo@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 17:59:06 by zyasuo            #+#    #+#             */
-/*   Updated: 2022/04/13 13:23:43 by zyasuo           ###   ########.fr       */
+/*   Updated: 2022/04/13 13:40:38 by zyasuo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,30 +94,24 @@ t_fork	**get_forks_arr(int number)
 	return (forks);
 }
 
-t_table	*philos_init(int argc, char **argv)
+t_table	*new_table(int philo_n, int die, int eat, int sleep)
 {
 	t_table	*table;
-	int		philo_n;
 
-	if (ft_atoi(argv[2]) <= 0 || ft_atoi(argv[3]) <= 0 || ft_atoi(argv[4]) <= 0)
-		return (NULL);
-	philo_n = ft_atoi(argv[1]);
-	if (philo_n <= 0)
+	if (philo_n <= 0 || die <= 0 || eat <= 0 || sleep <= 0)
 		return (NULL);
 	table = malloc(sizeof(*table));
 	if (!table)
 		return (NULL);
 	table->eat_times = -1;
 	table->forks_n = philo_n;
-	table->philos = get_philo_arr(new_philo(ft_atoi(argv[2]),
-				ft_atoi(argv[3]), ft_atoi(argv[4])), philo_n);
+	table->philos = get_philo_arr(new_philo(die,
+				eat, sleep), philo_n);
 	table->forks = get_forks_arr(philo_n);
 	if (!table->philos || !table->forks)
 	{
 		free(table);
 		return (NULL);
 	}
-	if (argc == 6)
-		table->eat_times = ft_atoi(argv[5]);
 	return (table);
 }

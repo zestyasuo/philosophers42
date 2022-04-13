@@ -6,7 +6,7 @@
 /*   By: zyasuo <zyasuo@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 23:54:49 by zyasuo            #+#    #+#             */
-/*   Updated: 2022/04/13 13:21:52 by zyasuo           ###   ########.fr       */
+/*   Updated: 2022/04/13 13:38:30 by zyasuo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,6 @@ int		all_full(t_table *table, int length);
 int		is_dead(t_philo **philos, int length);
 int		philo_die(t_philo *philo);
 size_t	ft_sleep(size_t ms);
+t_table	*new_table(int philo_n, int die, int eat, int sleep);
 
 #endif

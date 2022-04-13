@@ -6,7 +6,7 @@
 /*   By: zyasuo <zyasuo@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 23:55:39 by zyasuo            #+#    #+#             */
-/*   Updated: 2022/04/13 13:21:40 by zyasuo           ###   ########.fr       */
+/*   Updated: 2022/04/13 13:39:20 by zyasuo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,23 @@ void	philo_print_mutex(t_philo **philos,
 		i++;
 	}
 }
+
+
+t_table	*philos_init(int argc, char **argv)
+{
+	t_table	*table;
+
+	table = new_table(ft_atoi(argv[1]), ft_atoi(argv[2]),
+			ft_atoi(argv[3]), ft_atoi(argv[4]));
+	if (argc == 6)
+	{
+		table->eat_times = ft_atoi(argv[5]);
+		if (table->eat_times <= 0)
+			return (NULL);
+	}
+	return (table);
+}
+
 
 int	main(int argc, char **argv)
 {
